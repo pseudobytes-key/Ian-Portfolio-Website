@@ -298,8 +298,8 @@ body {
 
 .skill-per.html { width: 85%; background: var(--green); }
 .skill-per.css { width: 75%; background: var(--red); }
-.skill-per.c-lang { width: 80%; background: var(--gold); color: var(--dark); }
-.skill-per.python { width: 50%; background: var(--green); }
+.skill-per.c-lang { width: 80%; background: var(--green);}
+.skill-per.python { width: 50%; background: var(--red); }
 
 
 
@@ -566,21 +566,45 @@ body {
 
 /* Mobile Devices (Below 768px) */
 @media screen and (max-width: 768px) {
-    .contact__container {
-        /* Stack columns vertically */
-        grid-template-columns: 1fr; 
-        row-gap: 3rem;
+    
+    /* 1. Fix the Home Section (Stack them) */
+    .home.section {
+        flex-direction: column-reverse; /* Puts Image on Top, Text on Bottom */
+        text-align: center;             /* Centers the text */
+        gap: 30px;                      /* Adds space between image and text */
+        padding-top: 120px;             /* Adds extra space so Header doesn't cover it */
+        height: auto;                   /* Allows section to grow naturally */
     }
 
-    .contact__info {
+    /* 2. Make the Image Smaller for Phone */
+    .home__img {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto; /* Centers the image */
+    }
+
+    /* 3. Ensure Text takes full width */
+    .home__content {
+        max-width: 100%;
+    }
+
+    /* 4. Fix the Header (Stack Logo and Menu) */
+    .header {
+        flex-direction: column; /* Stacks Logo on top of Menu */
+        padding: 10px;
+        gap: 10px;
+        height: auto;           /* Allows header to grow */
+    }
+
+    .navbar {
+        gap: 15px;              /* Adds space between links */
+        flex-wrap: wrap;        /* Allows links to wrap if needed */
         justify-content: center;
     }
-
-    .contact__form {
-        width: 100%;
-    }
     
-    .section-title {
-        font-size: 2rem;
+    .navbar a {
+        margin-left: 10px;      /* Reduces spacing for mobile */
+        margin-right: 10px;
+        font-size: 0.9rem;      /* Slightly smaller text */
     }
 }
